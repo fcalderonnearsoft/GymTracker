@@ -1,0 +1,27 @@
+<h1>Exercise list</h1>
+
+<%= link_to  "New exercise", new_exercise_path %>
+
+
+<table>
+    <thead>
+        <tr>
+            <th> Name </th>
+            <th> Body part </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @exercises.blank? %>
+            <tr>
+                <td colspan=2> There's no exercise registered yet </td>
+            </tr>
+        <% elsif %>
+            <% @exercises.each do |exercise| %>
+            <tr>
+                <td> <% exercise.name %> </td>
+                <td> <% exercise.body_part %> </td>
+            </tr> 
+            <% end %>
+        <% end %>
+    </tbody>
+</table>
