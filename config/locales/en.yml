@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  exercise:
+    list: Exercise list
+    new-button: New exercise
+    errors:
+      no-exercises: There's no exercise registered yet
