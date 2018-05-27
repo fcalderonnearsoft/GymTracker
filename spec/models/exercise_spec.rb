@@ -15,8 +15,8 @@ RSpec.describe Exercise, :type => :model do
 
   context "with name and body part filled" do
     it "should be a valid exercise" do
-      exercise = Exercise.new body_part: 'back', name: 'new exercise'
-      expect(exercise).to be_valid
+        exercise = Exercise.new body_part: 'back', name: 'new exercise'
+        expect(exercise).to be_valid
     end
   end
 end
