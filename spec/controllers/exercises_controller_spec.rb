@@ -1,6 +1,11 @@
 require "rails_helper"
 
 RSpec.describe "exercises page", :type => :request do
+
+    before(:all) do
+        @exercise = Exercise.create(name: 'Test exercise 1', body_part: 'Test body_part')
+    end
+
     it "displays the exercise index page" do
         # user = User.create!(:username => "jdoe", :password => "secret")
         get exercises_url
@@ -23,8 +28,21 @@ RSpec.describe "exercises page", :type => :request do
         expect(response).to render_template(:new)
     end
 
-    it "redirect to index page after create a exercise" do
+    it "displays the exercise edit page" do
+        get edit_exercise_url(@exercise)
+        expect(response).to render_template(:edit)
+    end
+
+    it "redirect to index page after edit an exercise" do
+        put exercise_url(@exercise), params: { exercise: { name: 'Exercise In Test', body_part: 'Leg', } }
+
+        expect(response).to redirect_to(exercises_url)
+    end
+
+    it "redirect to index page after create an exercise" do
         post exercises_url, params: { exercise: { name: 'Exercise test', body_part: 'Back' } }
         expect(response).to redirect_to(exercises_url)
     end
+
+
 end
