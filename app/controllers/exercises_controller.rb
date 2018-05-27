@@ -11,9 +11,24 @@ class ExercisesController < ApplicationController
         @exercise = Exercise.new(exercise_params)
 
         if @exercise.save
-            redirect_to exercises_path, notice: t('exercise.exercise-successfuly-created')
+            flash[:success] = t('exercise.exercise-successfuly-created')
+            redirect_to exercises_path
         else
-            redirect_to new_exercise_path, notice: t('exercise.errors.exercise-not-created')
+            flash[:error] = t('exercise.errors.exercise-not-created')
+            redirect_to new_exercise_path
+        end
+    end
+
+    def edit
+        @exercise = Exercise.find(params[:id])
+    end
+
+    def update
+        @exercise = Exercise.find(params[:id])
+        if @exercise.update(exercise_params)
+            redirect_to exercises_path, notice: t('exercise.exercise-successfuly-updated')
+        else
+            redirect_to edit_exercise_path, notice: t('exercise.exercise-not-updated')
         end
     end
 

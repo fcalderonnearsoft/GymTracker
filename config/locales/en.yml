@@ -31,6 +31,7 @@
 
 en:
   save: Save
+  edit: Edit
   exercise:
     list: Exercise list
     new-button: New exercise
@@ -38,6 +39,8 @@ en:
     body_part: Body part
     add_new_exercise: Add new exercise
     exercise-successfuly-created: Exercise successfuly created
+    exercise-successfuly-updated: Exercise successfuly updated
     errors:
       no-exercises: There's no exercise registered yet
       exercise-not-created: Error - Exercise can't be saved
+      exercise-not-updated: Error - Exercise can't be updated
