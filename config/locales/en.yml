@@ -32,6 +32,7 @@
 en:
   save: Save
   edit: Edit
+  delete: Delete
   exercise:
     list: Exercise list
     new-button: New exercise
@@ -40,6 +41,7 @@ en:
     add_new_exercise: Add new exercise
     exercise-successfuly-created: Exercise successfuly created
     exercise-successfuly-updated: Exercise successfuly updated
+    exercise-successfuly-updated: Exercise successfuly deleted
     errors:
       no-exercises: There's no exercise registered yet
       exercise-not-created: Error - Exercise can't be saved
