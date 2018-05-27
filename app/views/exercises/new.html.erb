@@ -1,0 +1,18 @@
+<h1><%= t('exercise.add_new_exercise') %> </h1>
+
+<%= form_for @exercise, url: exercises_path(@exercise) do |f| %>
+
+<div>
+    <%= f.label t('exercise.name') %>
+    <%= f.text_field :name %>
+</div>
+
+<div>
+    <%= f.label t('exercise.body_part') %>
+    <%= f.text_field :body_part %>
+</div>
+
+<div>
+    <%= f.submit t('save') %>
+</div>
+<% end %>

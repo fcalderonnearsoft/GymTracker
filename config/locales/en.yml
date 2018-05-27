@@ -30,4 +30,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  save: Save
+  exercise:
+    list: Exercise list
+    new-button: New exercise
+    name: Name
+    body_part: Body part
+    add_new_exercise: Add new exercise
+    exercise-successfuly-created: Exercise successfuly created
+    errors:
+      no-exercises: There's no exercise registered yet
+      exercise-not-created: Error - Exercise can't be saved
