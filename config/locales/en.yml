@@ -33,11 +33,13 @@ en:
   save: Save
   edit: Edit
   delete: Delete
+  update: Update
+  Back: Back
   exercise:
     list: Exercise list
     new-button: New exercise
     name: Name
-    body_part: Body part
+    muscle-worked-on: Muscle worked on
     add_new_exercise: Add new exercise
     exercise-successfuly-created: Exercise successfuly created
     exercise-successfuly-updated: Exercise successfuly updated
@@ -46,3 +48,15 @@ en:
       no-exercises: There's no exercise registered yet
       exercise-not-created: Error - Exercise can't be saved
       exercise-not-updated: Error - Exercise can't be updated
+  evaluation:
+    list: Evaluations list
+    new-button: New evaluation date
+    exercise: Exercise to evaluate
+    day: Evaluation day
+    evaluation-successfuly-created: Evaluation successfuly created
+    evaluation-successfuly-updated: Evaluation successfuly updated
+    evaluation-successfuly-updated: Evaluation successfuly deleted
+    errors:
+      no-exercises: There's no exercises to evaluate scheduled yet 
+      evaluation-not-created: Error - Evaluation can't be saved
+      evaluation-not-updated: Error - Evaluation can't be updated

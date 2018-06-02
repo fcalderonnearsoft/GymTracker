@@ -1,0 +1,16 @@
+<h2> Add new evaluation </h2>
+
+<%= form_for @evaluation do |f| %>
+
+<div class="form-group"> 
+    <%= f.label :exercise_id %>
+    <%= f.collection_select(:exercise_id, Exercise.order(:name), :id, :name, prompt: true, class: 'form-control') %>
+</div>
+
+<div class="form_group">
+    <%= f.label :evaluation_day %>
+    <%= f.date_select :evaluation_day %>
+</div>
+
+<%= f.submit %>
+<% end %>
