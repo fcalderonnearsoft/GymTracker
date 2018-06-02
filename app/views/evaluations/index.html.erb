@@ -1,0 +1,33 @@
+<h1><%= t('evaluation.list') %> </h1>
+
+<%= link_to  t('evaluation.new-button'), new_evaluation_path, class: 'btn btn-primary' %>
+
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th> <%= t('evaluation.exercise') %> </th>
+            <th> <%= t('evaluation.day') %> </th>
+            <th> # </th>
+            <th> # </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @evaluations.blank? %>
+            <tr>
+                <td colspan=2> <%= t('evaluation.errors.no-exercises') %> </td>
+            </tr>
+        <% elsif %>
+            <% @evaluations.each do |evaluation| %>
+                <tr>
+                    <td> <%= evaluation.exercise.name %> </td>
+                    <td> <%= evaluation.evaluation_day.to_formatted_s(:rfc822) %> </td>
+                    <td> <%= link_to  t('edit'), edit_evaluation_path(evaluation) %> </td>
+                    <td> <%= link_to  t('delete'), evaluation_path(evaluation), 
+                        method: :DELETE, 
+                        data: { confirm: 'Are you sure?' } %> </td>
+                </tr> 
+            <% end %>
+        <% end %>
+    </tbody>
+</table>

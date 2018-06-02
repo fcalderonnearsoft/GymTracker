@@ -8,7 +8,7 @@
 </div>
 
 <div>
-    <%= f.label t('exercise.body_part') %>
+    <%= f.label t('exercise.muscle-worked-on') %>
     <%= f.text_field :body_part %>
 </div>
 
@@ -16,3 +16,5 @@
     <%= f.submit t('save') %>
 </div>
 <% end %>
+
+<%= link_to  t('back') , exercises_path %>
