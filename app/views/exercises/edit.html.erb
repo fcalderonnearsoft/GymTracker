@@ -1,20 +1,3 @@
 <h1><%= t('exercise.add_new_exercise') %> </h1>
 
-<%= form_for @exercise do |f| %>
-
-<div>
-    <%= f.label t('exercise.name') %>
-    <%= f.text_field :name %>
-</div>
-
-<div>
-    <%= f.label t('exercise.muscle-worked-on') %>
-    <%= f.text_field :body_part %>
-</div>
-
-<div>
-    <%= f.submit t('update') %>
-</div>
-<% end %>
-
-<%= link_to  t('back') , exercises_path %>
+<%= render 'form' %>

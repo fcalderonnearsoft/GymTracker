@@ -34,7 +34,8 @@ en:
   edit: Edit
   delete: Delete
   update: Update
-  Back: Back
+  back: Back
+  delete_message: Are you sure you want to delete it?
   exercise:
     list: Exercise list
     new-button: New exercise
@@ -53,6 +54,8 @@ en:
     new-button: New evaluation date
     exercise: Exercise to evaluate
     day: Evaluation day
+    add_new_evaluation: Add new evaluation
+    edit_evaluation: Edit evaluation
     evaluation-successfuly-created: Evaluation successfuly created
     evaluation-successfuly-updated: Evaluation successfuly updated
     evaluation-successfuly-updated: Evaluation successfuly deleted
