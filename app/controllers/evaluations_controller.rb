@@ -1,6 +1,6 @@
 class EvaluationsController < ApplicationController
     def index
-        @evaluations = Evaluation.all.includes(:exercise)
+        @evaluations = Evaluation.order(evaluation_day: :asc).includes(:exercise)
     end
 
     def new
