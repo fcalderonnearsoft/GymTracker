@@ -4,10 +4,12 @@ RSpec.describe "exercises page", :type => :request do
 
     before(:all) do
         @exercise = Exercise.create(name: 'Test exercise 1', body_part: 'Test body_part')
+
+        user = User.create!(:email => "test@user.com", :password => "secret")
+        post new_user_session_url, params: { user: { email: "test@user.com", password: "secret" } }
     end
 
     it "displays the exercise index page" do
-        # user = User.create!(:username => "jdoe", :password => "secret")
         get exercises_url
         expect(response).to render_template(:index)
 
