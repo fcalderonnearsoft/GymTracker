@@ -1,6 +1,6 @@
 class ExercisesController < ApplicationController
     def index
-        @exercises = Exercise.all
+        @exercises = Exercise.order(:name)
     end
 
     def new

@@ -25,7 +25,7 @@
                     <td> <%= link_to  t('edit'), edit_evaluation_path(evaluation) %> </td>
                     <td> <%= link_to  t('delete'), evaluation_path(evaluation), 
                         method: :DELETE, 
-                        data: { confirm: 'Are you sure?' } %> </td>
+                        data: { confirm: t('delete_message') } %> </td>
                 </tr> 
             <% end %>
         <% end %>
