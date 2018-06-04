@@ -1,14 +1,13 @@
 require "rails_helper"
-require 'support/factory_bot'
 
 RSpec.describe "evaluations page", :type => :request do
 
     before(:all) do
-        @exercise = Exercise.create(name: 'Test exercise 2', body_part: 'Test body_part')
-        @evaluation = Evaluation.create(exercise_id: @exercise.id, evaluation_day: Date.parse('20180429'))
+        @exercise = Exercise.create(name: Faker::RickAndMorty.character, body_part: Faker::RickAndMorty.location)
+        @evaluation = Evaluation.create(exercise_id: @exercise.id, evaluation_day: Faker::Date.forward(23))
 
-        user = User.create!(email: "test_evaluation@user.com", password: "secret")
-        post new_user_session_url, params: { user: { email: "test_evaluation@user.com", password: "secret" } }
+        user = User.create!(email: Faker::Internet.unique.email, password: Faker::Internet.password)
+        post new_user_session_url, params: { user: { email: user.email, password: user.password } }
     end
 
     it "displays the evaluation index page" do
