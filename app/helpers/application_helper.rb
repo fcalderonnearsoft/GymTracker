@@ -8,8 +8,7 @@ module ApplicationHelper
         end
     end
 
-    def current_class?(test_path)
-        return 'nav-link active' if request.path == test_path
-        'nav-link'
-    end
+    def active_class?(link_path)
+        current_page?(link_path) ? 'nav-link active' : 'nav-link'
+      end    
 end

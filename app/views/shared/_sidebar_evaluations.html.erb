@@ -1,0 +1,16 @@
+<nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+    <ul class="nav nav-pills flex-column">
+    <li class="nav-item">
+        <%= link_to 'Upcoming Evaluations', evaluations_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+        <%= link_to 'History', history_evaluation_path(@evaluations), class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Analytics</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Export</a>
+    </li>
+    </ul>
+</nav>

@@ -1,33 +1,36 @@
-<h1><%= t('exercise.list') %> </h1>
+<div class='col-md-12'>
 
-<%= link_to  t('exercise.new-button'), new_exercise_path, class: 'btn btn-primary' %>
+    <h1><%= t('exercise.list') %> </h1>
+
+    <%= link_to  t('exercise.new-button'), new_exercise_path, class: 'btn btn-primary' %>
 
 
-<table class="table table-striped">
-    <thead class="thead-dark">
-        <tr>
-            <th> Name </th>
-            <th> <%= t('exercise.muscle-worked-on') %> </th>
-            <th> # </th>
-            <th> # </th>
-        </tr>
-    </thead>
-    <tbody>
-        <% if @exercises.blank? %>
+    <table class="table table-striped">
+        <thead class="thead-dark">
             <tr>
-                <td colspan=2> <%= t('exercise.errors.no-exercises') %> </td>
+                <th> Name </th>
+                <th> <%= t('exercise.muscle-worked-on') %> </th>
+                <th> # </th>
+                <th> # </th>
             </tr>
-        <% elsif %>
-            <% @exercises.each do |exercise| %>
+        </thead>
+        <tbody>
+            <% if @exercises.blank? %>
                 <tr>
-                    <td> <%= exercise.name %> </td>
-                    <td> <%= exercise.body_part %> </td>
-                    <td> <%= link_to  t('edit'), edit_exercise_path(exercise) %> </td>
-                    <td> <%= link_to  t('delete'), exercise_path(exercise), 
-                        method: :DELETE, 
-                        data: { confirm: t('delete_message') } %> </td>
-                </tr> 
+                    <td colspan=2> <%= t('exercise.errors.no-exercises') %> </td>
+                </tr>
+            <% elsif %>
+                <% @exercises.each do |exercise| %>
+                    <tr>
+                        <td> <%= exercise.name %> </td>
+                        <td> <%= exercise.body_part %> </td>
+                        <td> <%= link_to  t('edit'), edit_exercise_path(exercise) %> </td>
+                        <td> <%= link_to  t('delete'), exercise_path(exercise), 
+                            method: :DELETE, 
+                            data: { confirm: t('delete_message') } %> </td>
+                    </tr> 
+                <% end %>
             <% end %>
-        <% end %>
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>

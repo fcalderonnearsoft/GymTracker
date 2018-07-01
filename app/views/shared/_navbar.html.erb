@@ -11,10 +11,10 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <%= link_to 'Evaluations', evaluations_path, class: current_class?(evaluations_path)  %>
+            <%= link_to 'Evaluations', evaluations_path, class: active_class?(evaluations_path)  %>
         </li>
         <li class="nav-item">
-            <%= link_to 'Exercises', exercises_path, class: current_class?(exercises_path)  %>
+            <%= link_to 'Exercises', exercises_path, class: active_class?(exercises_path)  %>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Help</a>
