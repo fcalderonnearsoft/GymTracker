@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GymTracker</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'devise', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+        <% if user_signed_in? %>
+        <%= link_to  "Logout", destroy_user_session_path, method: :DELETE %>
+        <% end %>
+
+        <% flash.each do |key, value| %>
+        <div class="<%= flash_class(key) %>">
+                <%= value %>
+        </div>    
+        <% end %>
+        <%= yield %>
+    </div>
+
+  </body>
+</html>
