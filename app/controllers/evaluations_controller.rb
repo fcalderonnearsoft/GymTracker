@@ -1,6 +1,6 @@
 class EvaluationsController < ApplicationController
     def index
-        @evaluations = Evaluation.order(evaluation_day: :asc).includes(:exercise)
+        @evaluations = Evaluation.where('evaluation_day >= ?', Time.now).order(evaluation_day: :asc).includes(:exercise)
     end
 
     def new
@@ -40,9 +40,28 @@ class EvaluationsController < ApplicationController
         redirect_to evaluations_path
     end
 
+    def new_register
+        evaluations_user = EvaluationsUser.where(evaluation_id: params[:id])
+        unless evaluations_user.empty?
+            redirect_to evaluations_path, notice: t('evaluation.errors.evaluation-already-registered') if evaluations_user.first.user_id.eql? current_user.id
+        end
+    end
+
+    def register
+        if EvaluationsUser.create(user_id: current_user.id, evaluation_id: params[:id], result: params[:result])
+            redirect_to evaluations_path, notice: t('evaluation.registered_evaluation')
+        else
+            redirect_to evaluations_path, notice: t('evaluation-not-registered')
+        end
+    end
+
+    def history
+        @evaluations_user = EvaluationsUser.order(created_at: :asc)
+    end
+
     private
     
     def evaluation_params
-        params.require(:evaluation).permit(:exercise_id, :evaluation_day)
+        params.require(:evaluation).permit(:exercise_id, :evaluation_day, :type_evaluation)
     end
 end

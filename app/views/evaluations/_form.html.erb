@@ -10,6 +10,11 @@
     <%= f.date_select :evaluation_day %>
 </div>
 
+<div class="form_group">
+    <%= f.label :type_evaluation %>
+    <%= f.select :type_evaluation, [['Time', 1], ['Reps', 2], ['Weight', 3]] %>
+</div>
+
 <%= f.submit %>
 <% end %>
 

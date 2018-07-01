@@ -1,0 +1,12 @@
+<%= form_tag register_evaluation_path do  %>
+
+<div class="form-group"> 
+    <%= label_tag :result %>
+    <%= text_field_tag :result, nil, placeholder: 'Enter number of reps', class: 'form-control' %>
+</div>
+
+
+<%= submit_tag %>
+<% end %>
+
+<%= link_to t('back'), evaluations_path %>

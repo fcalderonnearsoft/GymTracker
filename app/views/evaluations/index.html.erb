@@ -8,8 +8,7 @@
         <tr>
             <th> <%= t('evaluation.exercise') %> </th>
             <th> <%= t('evaluation.day') %> </th>
-            <th> # </th>
-            <th> # </th>
+            <th colspan='3'> # </th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +25,13 @@
                     <td> <%= link_to  t('delete'), evaluation_path(evaluation), 
                         method: :DELETE, 
                         data: { confirm: t('delete_message') } %> </td>
+
+                    <td>
+                    <% if evaluation.evaluation_day.strftime('%m/%d/%Y').eql? DateTime.now.strftime('%m/%d/%Y') %>  
+                    
+                        <%= link_to  t('register_evaluation'), new_register_evaluation_path(evaluation), class: 'btn btn-primary' %>
+                    <% end %>
+                    </td>
                 </tr> 
             <% end %>
         <% end %>

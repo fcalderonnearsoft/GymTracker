@@ -11,14 +11,19 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="<%= evaluations_path %>">Evaluations</a>
+            <%= link_to 'Evaluations', evaluations_path, class: current_class?(evaluations_path)  %>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="<%= exercises_path %>">Exercises</a>
+            <%= link_to 'Exercises', exercises_path, class: current_class?(exercises_path)  %>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Help</a>
         </li>
+        <% if user_signed_in? %>
+            <li class="nav-item">
+                <%= link_to  "Logout", destroy_user_session_path, method: :DELETE, class: 'nav-link' %>
+            </li>
+        <% end %>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
