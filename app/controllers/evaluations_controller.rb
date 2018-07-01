@@ -41,21 +41,21 @@ class EvaluationsController < ApplicationController
     end
 
     def new_register
-        evaluations_user = EvaluationsUser.where(evaluation_id: params[:id])
-        unless evaluations_user.empty?
+        result = VerifyEvaluation.call(evaluation_id: params[:id])
+        unless result.evaluations_user.empty?
             redirect_to evaluations_path, notice: t('evaluation.errors.evaluation-already-registered') if evaluations_user.first.user_id.eql? current_user.id
         end
     end
 
     def register
-        if EvaluationsUser.create(user_id: current_user.id, evaluation_id: params[:id], result: params[:result])
+        if RegisterEvaluation.call(user_id: current_user.id, evaluation_id: params[:id], result: params[:result]).success?
             redirect_to evaluations_path, notice: t('evaluation.registered_evaluation')
         else
             redirect_to evaluations_path, notice: t('evaluation-not-registered')
         end
     end
 
-    def history
+    def statistics
         @evaluations_user = EvaluationsUser.order(created_at: :asc)
     end
 

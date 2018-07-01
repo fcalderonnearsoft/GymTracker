@@ -8,7 +8,8 @@ Rails.application.routes.draw do
       post :register
     end
   end
-  get '/history', to: 'evaluations#history', as: 'evaluation_history'
+  get '/home', to: 'evaluations#statistics', as: 'evaluations_statistics'
 
-  root to: 'exercises#index'
+
+  root to: 'evaluations#statistics'
 end
