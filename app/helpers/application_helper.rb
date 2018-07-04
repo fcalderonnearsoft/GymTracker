@@ -7,4 +7,8 @@ module ApplicationHelper
             when :alert then "alert alert-error"
         end
     end
+
+    def active_class?(link_path)
+        current_page?(link_path) ? 'nav-link active' : 'nav-link'
+      end    
 end

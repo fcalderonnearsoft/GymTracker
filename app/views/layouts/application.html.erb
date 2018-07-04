@@ -14,36 +14,14 @@
 
     <div class="container-fluid">
       <div class="row">
-        <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
-          <ul class="nav nav-pills flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Reports</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Analytics</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Export</a>
-            </li>
-          </ul>
-        </nav>
-
-        <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-          <% if user_signed_in? %>
-            <%= link_to  "Logout", destroy_user_session_path, method: :DELETE %>
-          <% end %>
-
+        <div class='col-md-12'>
           <% flash.each do |key, value| %>
             <div class="<%= flash_class(key) %>">
                   <%= value %>
             </div>    
           <% end %>
           <%= yield %>
-
-        </main>
+        </div>
       </div>
     </div>
   </body>

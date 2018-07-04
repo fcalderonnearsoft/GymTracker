@@ -50,12 +50,16 @@ en:
       exercise-not-created: Error - Exercise can't be saved
       exercise-not-updated: Error - Exercise can't be updated
   evaluation:
-    list: Evaluations list
+    list: Upcoming evaluations
     new-button: New evaluation date
     exercise: Exercise to evaluate
     day: Evaluation day
     add_new_evaluation: Add new evaluation
     edit_evaluation: Edit evaluation
+    register_evaluation: Register evaluation
+    previous_evaluation: Previous evaluations
+    result: Result
+    registered_evaluation: Evaluation result has been successfuly registered
     evaluation-successfuly-created: Evaluation successfuly created
     evaluation-successfuly-updated: Evaluation successfuly updated
     evaluation-successfuly-updated: Evaluation successfuly deleted
@@ -63,3 +67,5 @@ en:
       no-exercises: There's no exercises to evaluate scheduled yet 
       evaluation-not-created: Error - Evaluation can't be saved
       evaluation-not-updated: Error - Evaluation can't be updated
+      evaluation-not-registered: Error - Evaluation can't be registered
+      evaluation-already-registered: You already registered this evaluation

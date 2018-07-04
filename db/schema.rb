@@ -10,17 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_27_182158) do
+ActiveRecord::Schema.define(version: 2018_07_01_060634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "evaluations", force: :cascade do |t|
     t.bigint "exercise_id"
-    t.datetime "evaluation_day"
+    t.date "evaluation_day"
+    t.string "type_evaluation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exercise_id"], name: "index_evaluations_on_exercise_id"
+  end
+
+  create_table "evaluations_users", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "evaluation_id"
+    t.string "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["evaluation_id"], name: "index_evaluations_users_on_evaluation_id"
+    t.index ["user_id"], name: "index_evaluations_users_on_user_id"
   end
 
   create_table "exercises", force: :cascade do |t|
@@ -28,7 +39,6 @@ ActiveRecord::Schema.define(version: 2018_05_27_182158) do
     t.string "body_part"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,4 +59,6 @@ ActiveRecord::Schema.define(version: 2018_05_27_182158) do
   end
 
   add_foreign_key "evaluations", "exercises"
+  add_foreign_key "evaluations_users", "evaluations"
+  add_foreign_key "evaluations_users", "users"
 end
