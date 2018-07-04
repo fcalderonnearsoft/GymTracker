@@ -43,7 +43,7 @@ class EvaluationsController < ApplicationController
     def new_register
         result = VerifyEvaluation.call(evaluation_id: params[:id])
         unless result.evaluations_user.empty?
-            redirect_to evaluations_path, notice: t('evaluation.errors.evaluation-already-registered') if evaluations_user.first.user_id.eql? current_user.id
+            redirect_to evaluations_path, notice: t('evaluation.errors.evaluation-already-registered') if result.evaluations_user.first.user_id.eql? current_user.id
         end
     end
 
@@ -53,10 +53,6 @@ class EvaluationsController < ApplicationController
         else
             redirect_to evaluations_path, notice: t('evaluation-not-registered')
         end
-    end
-
-    def statistics
-        @evaluations_user = EvaluationsUser.order(created_at: :asc)
     end
 
     private

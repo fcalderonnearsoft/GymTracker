@@ -8,8 +8,9 @@ Rails.application.routes.draw do
       post :register
     end
   end
-  get '/home', to: 'evaluations#statistics', as: 'evaluations_statistics'
+  
+  get :dashboard, to: 'users#statistics', as: 'user_statistics'
 
 
-  root to: 'evaluations#statistics'
+  root to: 'users#statistics'
 end

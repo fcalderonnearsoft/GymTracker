@@ -1,15 +1,12 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">Dashboard</a>
+        <%= link_to 'Dashboard', user_statistics_path, class: 'navbar-brand' %>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <%= link_to 'Home', evaluations_statistics_path, class: active_class?(evaluations_statistics_path)  %>
-        </li>
         <li class="nav-item">
             <%= link_to 'Evaluations', evaluations_path, class: active_class?(evaluations_path)  %>
         </li>
