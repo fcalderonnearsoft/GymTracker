@@ -1,6 +1,6 @@
 class EvaluationsController < ApplicationController
     def index
-        @evaluations = Evaluation.where('evaluation_day >= ?', Time.now).order(evaluation_day: :asc).includes(:exercise)
+        @evaluations = Evaluation.upcoming_evaluations.order(evaluation_day: :asc).includes(:exercise)
     end
 
     def new
@@ -58,6 +58,6 @@ class EvaluationsController < ApplicationController
     private
     
     def evaluation_params
-        params.require(:evaluation).permit(:exercise_id, :evaluation_day, :type_evaluation)
+        params.require(:evaluation).permit(:exercise_id, :evaluation_day, :measure_unit)
     end
 end

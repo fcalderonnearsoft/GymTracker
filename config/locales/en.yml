@@ -46,7 +46,8 @@ en:
     exercise-successfuly-updated: Exercise successfuly updated
     exercise-successfuly-updated: Exercise successfuly deleted
     errors:
-      no-exercises: There's no exercise registered yet
+      no-exercises: You have not registered any exercise yet
+      no-evaluations-registered: You have not evaluations registered yet
       exercise-not-created: Error - Exercise can't be saved
       exercise-not-updated: Error - Exercise can't be updated
   evaluation:

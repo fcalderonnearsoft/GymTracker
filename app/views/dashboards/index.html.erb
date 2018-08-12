@@ -1,0 +1,41 @@
+<h1 class="page-header">
+    <%= t('evaluation.previous_evaluation') %> 
+</h1>
+
+<% if @exercises_evaluated.blank? %>
+    <tr>
+        <td colspan=2> <%= t('evaluation.errors.no-evaluations-registered') %> </td>
+    </tr>
+<% elsif %>
+    <% @exercises_evaluated.each do |exercise_name, evaluations| %>
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <a role="button" data-toggle="collapse" href="#collapse<%= exercise_name.delete(' ').downcase %>" aria-expanded="false" aria-controls="collapse<%= exercise_name.delete(' ').downcase %>">
+                        <%= exercise_name %> 
+                    </a>
+                </h5>
+            </div>
+        </div>
+                    
+           
+        <div class="collapse" id="collapse<%= exercise_name.delete(' ').downcase %>">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th> <%= t('evaluation.day') %> </th>
+                        <th> <%= t('evaluation.result') %> </th>
+                    </tr>
+                </thead>
+                <tbody> 
+                        <% evaluations.each do |evaluation_result| %>
+                            <tr>
+                                <td> <%= evaluation_result.evaluation_day.to_formatted_s(:rfc822) %> </td>
+                                <td> <%= evaluation_result.evaluations_user.first.result %> </td>
+                            </tr> 
+                        <% end %>
+                </tbody>
+            </table>
+        </div>
+    <% end %>
+<% end %>
