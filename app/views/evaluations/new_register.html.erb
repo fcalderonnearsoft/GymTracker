@@ -1,16 +1,22 @@
-<div class='col-md-12'>
+<div class='col col-lg-12'>
 
     <%= form_tag register_evaluation_path do  %>
 
-    <div class="form-group"> 
-        <%= label_tag :result %>
-        <%= text_field_tag :result, nil, placeholder: 'Enter number of reps', class: 'form-control' %>
+    <div class='col-md-4'>
+        <div class="form-group"> 
+            <%= label_tag :result %>
+            <%= text_field_tag :result, nil, placeholder: 'Enter result of evaluation', class: 'form-control', required: :required %>
+        </div>
     </div>
 
+    <div class='col-md-4'>
+        <%= submit_tag %>
+    </div>
+        <% end %>
 
-    <%= submit_tag %>
-    <% end %>
+    <div class='col-md-4'>
 
-    <%= link_to t('back'), evaluations_path %>
+        <%= link_to t('back'), evaluations_path %>
+    </div>
 
 </div>

@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2018_07_01_060634) do
   create_table "evaluations", force: :cascade do |t|
     t.bigint "exercise_id"
     t.date "evaluation_day"
-    t.string "type_evaluation"
+    t.string "measure_unit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exercise_id"], name: "index_evaluations_on_exercise_id"

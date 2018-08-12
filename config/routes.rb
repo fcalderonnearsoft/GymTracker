@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     end
   end
   
-  get :dashboard, to: 'users#statistics', as: 'user_statistics'
+  get :dashboard, to: 'dashboards#index', as: 'dashboards'
 
 
-  root to: 'users#statistics'
+  root to: 'dashboards#index'
 end
